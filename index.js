@@ -5,6 +5,7 @@ const path = require('path');
 
 //Routers -- these are my Route handlers -miniapplications
 const seatedRouter = require('./router-files/seatedRouter');
+const updateRouter = require('./router-files/updateRouter');
 
 
 const app = express();
@@ -19,7 +20,7 @@ app.use(morgan("short"));
 
 
 app.get("/", (req, res) => {
-    res.send("Hello world");
+    res.send("Hello world\n");
 });
 
 
@@ -27,7 +28,7 @@ app.get("/", (req, res) => {
 app.use('/api/seats', seatedRouter);
 
 // "U" - "Upate" Router to handle all seated inquirey both seated and unseated
-app.use('/api/seats')
+app.use('/api/seats/updateseated', updateRouter);
 
 
 
