@@ -21,9 +21,9 @@ router.get('/', (req, res) => {
         waiting: null
     };
 
-    let seated = fetchSeatingInfo('./pers-files/waiting.json');
+    let seated = fetchSeatingInfo('./pers-files/seated.json');
     status.seated = seated;
-    let waiting = fetchSeatingInfo('./pers-files/seated.json');
+    let waiting = fetchSeatingInfo('./pers-files/waiting.json');
     status.waiting =  waiting;
 
     res.json(status);

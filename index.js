@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.use('/api/seats', seatedRouter);
 
 // "U" - "Upate" Router to handle all seated inquirey both seated and unseated
-app.use('/api/seats/update', updateRouter);
+app.use('/api/seats/updateseated', updateRouter);
 
 
 
