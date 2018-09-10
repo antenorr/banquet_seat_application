@@ -6,7 +6,8 @@ const path = require('path');
 //Routers -- these are my Route handlers -miniapplications
 const seatedRouter = require('./router-files/seatedRouter');
 const updateRouter = require('./router-files/updateRouter');
-const createRouter = require('./router-files/createRouter')
+const createRouter = require('./router-files/createRouter');
+const deleteRouter = require('./router-files/deleteRouter')
 
 
 const app = express();
@@ -28,11 +29,14 @@ app.get("/", (req, res) => {
 // "R" - "GET" Router to handle all seated inquirey both seated and unseated
 app.use('/api/seats', seatedRouter);
 
-// "U" - "Upate" Router to handle all seated inquirey both seated and unseated
+// "U" - "Upate" Router to handle a seated inquirey both seated and unseated- Requires ID
 app.use('/api/seats/updateseated', updateRouter);
 
-// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list requires only name in body
+// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body
 app.use('/api/seats/createguest', createRouter);
+
+// "D" - "DELETE" Router to handle the Deletion of a particular guest from the seated or the waiting list - Requires ID
+app.use('/api/seats/deleteguest', deleteRouter)
 
 
 
