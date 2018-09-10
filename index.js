@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-Parser');
+const bodyParser = require('body-parser');
 const path = require('path');
 
 //Routers -- these are my Route handlers -miniapplications
