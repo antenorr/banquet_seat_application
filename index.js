@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     res.send("Hello world\n");
 });
 
-// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body
+// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body - a name and phone
 app.use('/api/seats/createguest', createRouter);
 
 // "R" - "GET" Router to handle all seated inquirey both seated and unseated
@@ -35,7 +35,7 @@ app.use('/api/seats', seatedRouter);
 // "U" - "Upate" Router to handle a seated inquirey both seated and unseated- Requires ID
 app.use('/api/seats/updateseated', updateRouter);
 
-// "D" - "DELETE" Router to handle the Deletion of a particular guest from the seated or the waiting list - Requires ID
+// "D" - "DELETE" Router to handle the Deletion of a particular guest from the seated or the waiting list - Requires ID & Specified list
 app.use('/api/seats/deleteguest', deleteRouter)
 
 

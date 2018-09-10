@@ -20,34 +20,30 @@ let fetchSeatingInfo = (path) => {
 };
 
 
+
+
 router.post('/', (req, res) => {
     let AllSeatedGuest = fetchSeatingInfo('./pers-files/seated.json');
     let AllWaitingGuest = fetchSeatingInfo('./pers-files/waiting.json');
 
-    // AllSeatedGuest.push(
-    //     { id: (AllSeatedGuest.length) + 3, name: "charly"}
-    // )
-   
 
-
-    // console.log(  AllSeatedGuest.length + 10);
-
-    // let x  = req.body
-    // console.log(x);
-    // res.json(AllSeatedGuest);
-    
     if (AllSeatedGuest.length < 5) {
-        console.log(AllSeatedGuest.length );
+       
+
         AllSeatedGuest.push({
             id: (AllSeatedGuest.length) + 1,
-            name: req.body.name
+            name: req.body.name,
+            phone:  req.body.phone 
         })
+        console.log("this is the incoming body: ", req.body)
         fs.writeFileSync('./pers-files/seated.json', JSON.stringify(AllSeatedGuest), 'utf8');
         res.json(AllSeatedGuest );
     } else {
         AllWaitingGuest.push({
             id: (AllWaitingGuest.length) + 1,
-            name: req.body.name
+            name: req.body.name,
+            pone: req.body.phone
+          
         })
         fs.writeFileSync('./pers-files/waiting.json', JSON.stringify(AllWaitingGuest), 'utf8');
         res.json(AllWaitingGuest);

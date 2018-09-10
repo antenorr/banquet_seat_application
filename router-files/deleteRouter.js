@@ -29,9 +29,10 @@ router.delete('/:id/:specificList', (req, res) => {
     guests.splice(guests.indexOf(selectedPerson), 1) //will remove what you wanted
     let modifiedList = guests;//this will return teh modified list of what's left
     fs.writeFileSync(`./pers-files/${chosenList}.json`, JSON.stringify(modifiedList, 'utf8'));
-    console.log(guests);
+    // console.log(guests);
 
-    res.json(modifiedList);
+     res.json( modifiedList );
+    //res.send("your file has been deleted")
 
 })
 
@@ -40,3 +41,5 @@ router.delete('/:id/:specificList', (req, res) => {
 
 
 module.exports = router;
+
+//[{"id":1,"name":"linda"},{"id":2,"name":"linda"},{"id":3,"name":"linda"},{"id":4,"name":"linda"},{"id":5,"name":"linda"}]

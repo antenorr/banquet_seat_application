@@ -3,10 +3,9 @@ import './players.css';
 
 
 const Players = props => {
-    const { seatedStatus, deleteGuest } = props;
+    const { seatedStatus, deleteGuest, status } = props;
  
     return (
-
  
             <div className="row">
                 <ul >
@@ -17,10 +16,12 @@ const Players = props => {
                                     <div className="card">
                                         <div className="card-image image">
                                             <span className="card-title">Guest: {seat.id}</span>
-                                        <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => deleteGuest(seat.id, "seated")  }><i className="material-icons">clear</i></a>
+                                        <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => deleteGuest(seat.id, status)  }><i className="material-icons">clear</i></a>
                                         </div>
                                         <div className="card-content">
+                                           
                                             <p>{seat.name}</p>
+                                            <p>{seat.phone}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -29,11 +30,6 @@ const Players = props => {
                     )}
                 </ul>
             </div>
-
-
- 
-   
-
 
 
 
