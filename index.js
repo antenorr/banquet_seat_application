@@ -6,6 +6,7 @@ const path = require('path');
 //Routers -- these are my Route handlers -miniapplications
 const seatedRouter = require('./router-files/seatedRouter');
 const updateRouter = require('./router-files/updateRouter');
+const createRouter = require('./router-files/createRouter')
 
 
 const app = express();
@@ -30,7 +31,8 @@ app.use('/api/seats', seatedRouter);
 // "U" - "Upate" Router to handle all seated inquirey both seated and unseated
 app.use('/api/seats/updateseated', updateRouter);
 
-
+// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list requires only name in body
+app.use('/api/seats/createguest', createRouter);
 
 
 
