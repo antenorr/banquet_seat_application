@@ -14,17 +14,20 @@ const app = express();
 // This step allows us to handle data parsing thus req.body 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 //Our logger 
 app.use(morgan("short"));
 
 /***** FILE REQUIREMENTS ABOVE  ******* */
 
-
-
 app.get("/", (req, res) => {
     res.send("Hello world\n");
 });
 
+// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body
+app.use('/api/seats/createguest', createRouter);
 
 // "R" - "GET" Router to handle all seated inquirey both seated and unseated
 app.use('/api/seats', seatedRouter);
@@ -32,19 +35,15 @@ app.use('/api/seats', seatedRouter);
 // "U" - "Upate" Router to handle a seated inquirey both seated and unseated- Requires ID
 app.use('/api/seats/updateseated', updateRouter);
 
-// "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body
-app.use('/api/seats/createguest', createRouter);
-
 // "D" - "DELETE" Router to handle the Deletion of a particular guest from the seated or the waiting list - Requires ID
 app.use('/api/seats/deleteguest', deleteRouter)
 
 
-
-
-
-
-
-
+// The "catchall" handler: for any request that does not
+// match any above, we will send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 
 const port = process.env.PORT || 5000;

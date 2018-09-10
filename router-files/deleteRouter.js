@@ -31,20 +31,6 @@ router.delete('/:id/:specificList', (req, res) => {
     fs.writeFileSync(`./pers-files/${chosenList}.json`, JSON.stringify(modifiedList, 'utf8'));
     console.log(guests);
 
-    // console.log(guests);
-    // console.log(guests.indexOf(selectedPerson)  )
-    // console.log(  guests.splice(guests.indexOf(selectedPerson)), 1     );
-    // console.log('the one i want: ', guests)
-    //let modifiedGuests = guests.splice(guests.indexOf(selectedPerson), 0 );
-
-
-  
-
-
-
-
-    //WE ARE JUST GOING TO SERVE NOTICE OF A SPECIFIC GUEST- WHAT'S TO UPDATE?
-    //WE CAN UPDATE THE PERSONS NAME OR EMAIL IS SUPPOSE
     res.json(modifiedList);
 
 })
