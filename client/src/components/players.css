@@ -4,6 +4,8 @@
     height: 200px;
 
     background-image: url("./nice.jpg");
+    background-size: cover;
+  
 }
 
 .horizontal-list {

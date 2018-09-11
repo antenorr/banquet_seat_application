@@ -40,11 +40,12 @@ router.post('/', (req, res) => {
         res.json(AllSeatedGuest );
     } else {
         AllWaitingGuest.push({
-            id: (AllWaitingGuest.length) + 1,
+            id: (AllSeatedGuest.length) + 1,
             name: req.body.name,
-            pone: req.body.phone
+            phone: req.body.phone 
           
         })
+        console.log("this is the incoming waitin body: ", req.body)
         fs.writeFileSync('./pers-files/waiting.json', JSON.stringify(AllWaitingGuest), 'utf8');
         res.json(AllWaitingGuest);
     }
