@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 // "C" - "CREATE" Router to handle the addition of a new guest to the seated or waiting list - Requires body - a name and phone
 app.use('/api/seats/createguest', createRouter);
 
-// "R" - "GET" Router to handle all seated inquirey both seated and unseated
+// "R" - "GET" Router to handle all seated inquirey both seated and unseated-
 app.use('/api/seats', seatedRouter);
 
 // "U" - "Upate" Router to handle a seated inquirey both seated and unseated- Requires ID
